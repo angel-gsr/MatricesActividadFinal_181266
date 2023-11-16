@@ -2,7 +2,6 @@
 
 #define n 3
 
-
 void imprimirMatriz(int matriz[n][n]) 
 {
     for (int i = 0; i < n; ++i) 
@@ -15,6 +14,61 @@ void imprimirMatriz(int matriz[n][n])
     }
 }
 
+int SumaFila1(int matriz[n][n]) 
+{
+    int suma = 0;
+    for (int j = 0; j < n; ++j) 
+	{
+        suma += matriz[0][j];
+    }
+    return suma;
+}
+int SumaFila2(int matriz[n][n]) 
+{
+    int suma = 0;
+    for (int j = 0; j < n; ++j) 
+	{
+        suma += matriz[1][j];
+    }
+    return suma;
+}
+int SumaFila3(int matriz[n][n]) 
+{
+    int suma = 0;
+    for (int j = 0; j < n; ++j) 
+	{
+        suma += matriz[2][j];
+    }
+    return suma;
+}
+
+int SumaColumna1(int matriz[n][n]) 
+{
+    int suma = 0;
+    for (int i = 0; i < n; ++i) 
+	{
+        suma += matriz[i][0];
+    }
+    return suma;
+}
+int SumaColumna2(int matriz[n][n]) 
+{
+    int suma = 0;
+    for (int i = 0; i < n; ++i) 
+	{
+        suma += matriz[i][1];
+    }
+    return suma;
+}
+int SumaColumna3(int matriz[n][n]) 
+{
+    int suma = 0;
+    for (int i = 0; i < n; ++i) 
+	{
+        suma += matriz[i][2];
+    }
+    return suma;
+}
 
 int Verifica(int matriz[n][n]) 
 {
@@ -80,18 +134,29 @@ int main()
 {
     int matriz[n][n];
     
-    printf("Ingresa los elementos de la matriz 3x3:\n");
+    printf("Ingresa los elementos de la matriz 3x3:\n\n");
     for (int i = 0; i < n; ++i) 
 	{
         for (int j = 0; j < n; ++j) 
 		{
+			printf("Posicion(%d,%d):",i,j);
             scanf("%d", &matriz[i][j]);
         }
     }
 
     printf("\nMatriz:\n");
     imprimirMatriz(matriz);
+    
 	//verifica
+	printf("\n---------------------------------------------\n");
+	printf("Suma de la Fila 1: %d\n", SumaFila1(matriz));
+	printf("Suma de la Fila 2: %d\n", SumaFila2(matriz));
+	printf("Suma de la Fila 3: %d\n", SumaFila3(matriz));
+	printf("\n---------------------------------------------\n");
+	printf("Suma de la Columna 1: %d\n", SumaColumna1(matriz));
+	printf("Suma de la Columna 2: %d\n", SumaColumna2(matriz));
+	printf("Suma de la Columna 3: %d\n", SumaColumna3(matriz));
+	
     if (Verifica(matriz)) //dependiendo del valor porque solo son comparaciones
 	{
         printf("\nLa matriz SI es magica.\n");
@@ -103,4 +168,3 @@ int main()
 
     return 0;
 }
-
